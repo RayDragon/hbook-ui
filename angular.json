@@ -3,5 +3,663 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "hbook": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/hbook",
+      "sourceRoot": "projects/hbook/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/hbook/www",
+            "index": "projects/hbook/src/index.html",
+            "main": "projects/hbook/src/main.ts",
+            "polyfills": "projects/hbook/src/polyfills.ts",
+            "tsConfig": "projects/hbook/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/hbook/src/favicon.ico",
+              "projects/hbook/src/assets",
+              {
+                "glob": "**/*.svg",
+                "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
+              }
+            ],
+            "styles": [
+              "projects/hbook/src/styles.scss",
+              {
+                "input": "node_modules/@ionic/angular/css/core.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/normalize.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/structure.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/typography.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/display.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/padding.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/float-elements.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/text-alignment.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/text-transformation.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/flex-utils.css"
+              },
+              {
+                "input": "projects/hbook/src/theme/variables.css"
+              }
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/hbook/src/environments/environment.ts",
+                  "with": "projects/hbook/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "hbook:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "hbook:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "hbook:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/hbook/src/test.ts",
+            "polyfills": "projects/hbook/src/polyfills.ts",
+            "tsConfig": "projects/hbook/tsconfig.spec.json",
+            "karmaConfig": "projects/hbook/karma.conf.js",
+            "assets": [
+              "projects/hbook/src/favicon.ico",
+              "projects/hbook/src/assets",
+              {
+                "glob": "**/*.svg",
+                "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
+              }
+            ],
+            "styles": [
+              "projects/hbook/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/hbook/tsconfig.app.json",
+              "projects/hbook/tsconfig.spec.json",
+              "projects/hbook/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/hbook/e2e/protractor.conf.js",
+            "devServerTarget": "hbook:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "hbook:serve:production"
+            }
+          }
+        },
+        "ionic-cordova-serve": {
+          "builder": "@ionic/angular-toolkit:cordova-serve",
+          "options": {
+            "cordovaBuildTarget": "hbook:ionic-cordova-build",
+            "devServerTarget": "hbook:serve"
+          },
+          "configurations": {
+            "production": {
+              "cordovaBuildTarget": "hbook:ionic-cordova-build:production",
+              "devServerTarget": "hbook:serve:production"
+            }
+          }
+        },
+        "ionic-cordova-build": {
+          "builder": "@ionic/angular-toolkit:cordova-build",
+          "options": {
+            "browserTarget": "hbook:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "hbook:build:production"
+            }
+          }
+        }
+      }
+    },
+    "qntn": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/qntn",
+      "sourceRoot": "projects/qntn/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/qntn/www",
+            "index": "projects/qntn/src/index.html",
+            "main": "projects/qntn/src/main.ts",
+            "polyfills": "projects/qntn/src/polyfills.ts",
+            "tsConfig": "projects/qntn/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/qntn/src/favicon.ico",
+              "projects/qntn/src/assets"
+            ],
+            "styles": [
+              "projects/qntn/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/qntn/src/environments/environment.ts",
+                  "with": "projects/qntn/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "qntn:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "qntn:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "qntn:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/qntn/src/test.ts",
+            "polyfills": "projects/qntn/src/polyfills.ts",
+            "tsConfig": "projects/qntn/tsconfig.spec.json",
+            "karmaConfig": "projects/qntn/karma.conf.js",
+            "assets": [
+              "projects/qntn/src/favicon.ico",
+              "projects/qntn/src/assets"
+            ],
+            "styles": [
+              "projects/qntn/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/qntn/tsconfig.app.json",
+              "projects/qntn/tsconfig.spec.json",
+              "projects/qntn/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/qntn/e2e/protractor.conf.js",
+            "devServerTarget": "qntn:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "qntn:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "admin": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/admin",
+      "sourceRoot": "projects/admin/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/admin/www",
+            "index": "projects/admin/src/index.html",
+            "main": "projects/admin/src/main.ts",
+            "polyfills": "projects/admin/src/polyfills.ts",
+            "tsConfig": "projects/admin/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/admin/src/favicon.ico",
+              "projects/admin/src/assets"
+            ],
+            "styles": [
+              "projects/admin/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/admin/src/environments/environment.ts",
+                  "with": "projects/admin/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "admin:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "admin:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "admin:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/admin/src/test.ts",
+            "polyfills": "projects/admin/src/polyfills.ts",
+            "tsConfig": "projects/admin/tsconfig.spec.json",
+            "karmaConfig": "projects/admin/karma.conf.js",
+            "assets": [
+              "projects/admin/src/favicon.ico",
+              "projects/admin/src/assets"
+            ],
+            "styles": [
+              "projects/admin/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/admin/tsconfig.app.json",
+              "projects/admin/tsconfig.spec.json",
+              "projects/admin/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/admin/e2e/protractor.conf.js",
+            "devServerTarget": "admin:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "admin:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "shops": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/shops",
+      "sourceRoot": "projects/shops/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/shops/www",
+            "index": "projects/shops/src/index.html",
+            "main": "projects/shops/src/main.ts",
+            "polyfills": "projects/shops/src/polyfills.ts",
+            "tsConfig": "projects/shops/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/shops/src/favicon.ico",
+              "projects/shops/src/assets",
+              {
+                "glob": "**/*.svg",
+                "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
+              }
+            ],
+            "styles": [
+              "projects/shops/src/styles.scss",
+              {
+                "input": "node_modules/@ionic/angular/css/core.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/normalize.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/structure.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/typography.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/display.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/padding.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/float-elements.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/text-alignment.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/text-transformation.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/flex-utils.css"
+              },
+              {
+                "input": "projects/shops/src/theme/variables.css"
+              }
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/shops/src/environments/environment.ts",
+                  "with": "projects/shops/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "shops:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "shops:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "shops:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/shops/src/test.ts",
+            "polyfills": "projects/shops/src/polyfills.ts",
+            "tsConfig": "projects/shops/tsconfig.spec.json",
+            "karmaConfig": "projects/shops/karma.conf.js",
+            "assets": [
+              "projects/shops/src/favicon.ico",
+              "projects/shops/src/assets",
+              {
+                "glob": "**/*.svg",
+                "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
+              }
+            ],
+            "styles": [
+              "projects/shops/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/shops/tsconfig.app.json",
+              "projects/shops/tsconfig.spec.json",
+              "projects/shops/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/shops/e2e/protractor.conf.js",
+            "devServerTarget": "shops:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "shops:serve:production"
+            }
+          }
+        },
+        "ionic-cordova-serve": {
+          "builder": "@ionic/angular-toolkit:cordova-serve",
+          "options": {
+            "cordovaBuildTarget": "shops:ionic-cordova-build",
+            "devServerTarget": "shops:serve"
+          },
+          "configurations": {
+            "production": {
+              "cordovaBuildTarget": "shops:ionic-cordova-build:production",
+              "devServerTarget": "shops:serve:production"
+            }
+          }
+        },
+        "ionic-cordova-build": {
+          "builder": "@ionic/angular-toolkit:cordova-build",
+          "options": {
+            "browserTarget": "shops:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "shops:build:production"
+            }
+          }
+        }
+      }
+    },
+    "auth": {
+      "projectType": "library",
+      "root": "projects/auth",
+      "sourceRoot": "projects/auth/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/auth/tsconfig.lib.json",
+            "project": "projects/auth/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/auth/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/auth/src/test.ts",
+            "tsConfig": "projects/auth/tsconfig.spec.json",
+            "karmaConfig": "projects/auth/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/auth/tsconfig.lib.json",
+              "projects/auth/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "hbook",
+  "cli": {
+    "defaultCollection": "@ionic/angular-toolkit"
   }
 }

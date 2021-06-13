@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "hbook-in"
+  },
+  "targets": {
+    "hbook-in": {
+      "hosting": {
+        "hbook": [
+          "hbook-in"
+        ]
+      }
+    }
+  }
+}

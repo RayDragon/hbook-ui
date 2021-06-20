@@ -1,0 +1,6 @@
+{
+	"appId": "in.hbook.shops",
+	"appName": "#Book Shops",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

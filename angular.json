@@ -133,9 +133,7 @@
                 "output": "./svg"
               }
             ],
-            "styles": [
-              "projects/hbook/src/styles.scss"
-            ],
+            "styles": ["projects/hbook/src/styles.scss"],
             "scripts": []
           }
         },
@@ -147,9 +145,7 @@
               "projects/hbook/tsconfig.spec.json",
               "projects/hbook/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -212,10 +208,57 @@
             "aot": true,
             "assets": [
               "projects/qntn/src/favicon.ico",
-              "projects/qntn/src/assets"
+              "projects/qntn/src/assets",
+              {
+                "input": "projects/stylesAndAssets",
+                "glob": "**/*",
+                "ignore": [
+                  "**/*.scss"
+                ],
+                "output": "assets"
+                
+              },
+              {
+                "glob": "**/*.svg",
+                "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
+              }
             ],
             "styles": [
-              "projects/qntn/src/styles.scss"
+              "projects/qntn/src/styles.scss",
+              {
+                "input": "node_modules/@ionic/angular/css/core.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/normalize.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/structure.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/typography.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/display.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/padding.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/float-elements.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/text-alignment.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/text-transformation.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/flex-utils.css"
+              },
+              {
+                "input": "projects/qntn/src/theme/variables.css"
+              }
             ],
             "scripts": []
           },
@@ -275,11 +318,14 @@
             "karmaConfig": "projects/qntn/karma.conf.js",
             "assets": [
               "projects/qntn/src/favicon.ico",
-              "projects/qntn/src/assets"
+              "projects/qntn/src/assets",
+              {
+                "glob": "**/*.svg",
+                "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
+              }
             ],
-            "styles": [
-              "projects/qntn/src/styles.scss"
-            ],
+            "styles": ["projects/qntn/src/styles.scss"],
             "scripts": []
           }
         },
@@ -291,9 +337,7 @@
               "projects/qntn/tsconfig.spec.json",
               "projects/qntn/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -305,6 +349,30 @@
           "configurations": {
             "production": {
               "devServerTarget": "qntn:serve:production"
+            }
+          }
+        },
+        "ionic-cordova-serve": {
+          "builder": "@ionic/angular-toolkit:cordova-serve",
+          "options": {
+            "cordovaBuildTarget": "qntn:ionic-cordova-build",
+            "devServerTarget": "qntn:serve"
+          },
+          "configurations": {
+            "production": {
+              "cordovaBuildTarget": "qntn:ionic-cordova-build:production",
+              "devServerTarget": "qntn:serve:production"
+            }
+          }
+        },
+        "ionic-cordova-build": {
+          "builder": "@ionic/angular-toolkit:cordova-build",
+          "options": {
+            "browserTarget": "qntn:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "qntn:build:production"
             }
           }
         }
@@ -334,9 +402,7 @@
               "projects/admin/src/favicon.ico",
               "projects/admin/src/assets"
             ],
-            "styles": [
-              "projects/admin/src/styles.scss"
-            ],
+            "styles": ["projects/admin/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -397,9 +463,7 @@
               "projects/admin/src/favicon.ico",
               "projects/admin/src/assets"
             ],
-            "styles": [
-              "projects/admin/src/styles.scss"
-            ],
+            "styles": ["projects/admin/src/styles.scss"],
             "scripts": []
           }
         },
@@ -411,9 +475,7 @@
               "projects/admin/tsconfig.spec.json",
               "projects/admin/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -560,9 +622,7 @@
                 "output": "./svg"
               }
             ],
-            "styles": [
-              "projects/shops/src/styles.scss"
-            ],
+            "styles": ["projects/shops/src/styles.scss"],
             "scripts": []
           }
         },
@@ -574,9 +634,7 @@
               "projects/shops/tsconfig.spec.json",
               "projects/shops/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -621,7 +679,7 @@
       "projectType": "library",
       "root": "projects/auth",
       "sourceRoot": "projects/auth/src",
-      "prefix": "lib",
+      "prefix": "auth",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -649,6 +707,44 @@
             "tsConfig": [
               "projects/auth/tsconfig.lib.json",
               "projects/auth/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "qr": {
+      "projectType": "library",
+      "root": "projects/qr",
+      "sourceRoot": "projects/qr/src",
+      "prefix": "qr",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/qr/tsconfig.lib.json",
+            "project": "projects/qr/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/qr/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/qr/src/test.ts",
+            "tsConfig": "projects/qr/tsconfig.spec.json",
+            "karmaConfig": "projects/qr/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/qr/tsconfig.lib.json",
+              "projects/qr/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

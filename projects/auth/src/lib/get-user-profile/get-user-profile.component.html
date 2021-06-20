@@ -1,0 +1,41 @@
+<ion-app>
+  <ion-toolbar>
+    <ion-title>Tell us more about you</ion-title>
+  </ion-toolbar>
+  <ion-content>
+    <div
+      style="
+        display: flex;
+        height: 100%;
+        width: 100%;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <ion-item>
+        <ion-label position="floating">What should we call you</ion-label>
+        <ion-input
+          clearInput
+          type="text"
+          placeholder="Your Name"
+          #name
+        ></ion-input>
+      </ion-item>
+    </div>
+  </ion-content>
+  <ion-footer>
+    <ion-toolbar>
+      <ion-title size="small"
+        >Looks like this is the first time we met</ion-title
+      >
+      <ion-buttons slot="end">
+        <ion-button (click)="this.modalController.dismiss({name: name.value})">
+          <ion-icon slot="start" name="tick"></ion-icon>
+          Done
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
+</ion-app>

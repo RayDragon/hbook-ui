@@ -23,6 +23,10 @@
       "auth": [
         "dist/auth/auth",
         "dist/auth"
+      ],
+      "qr": [
+        "dist/qr/qr",
+        "dist/qr"
       ]
     }
   },

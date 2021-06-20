@@ -1,0 +1,16 @@
+{
+  "name": "shops.hbook.in",
+  "version": "1.0.0",
+  "description": "Shops App from #Book",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@capacitor/android": "^3.0.1",
+    "@capacitor/cli": "^3.0.1",
+    "@capacitor/core": "^3.0.1"
+  }
+}

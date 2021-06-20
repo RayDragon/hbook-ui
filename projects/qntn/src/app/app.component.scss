@@ -1,0 +1,50 @@
+.menu-2-btn {
+  border-left: ridge 5px #7575ff;
+  width: 24px;
+  height: 140px;
+  position: absolute;
+  top: 50%;
+  right: -10px;
+  color: white;
+  transform: translateY(-50%);
+  z-index: 1;
+  background-color: #9898ff;
+  border-radius: 100% 0 0 100%;
+  animation-name: slide-right;
+  animation-duration: 1s;
+  transform: translate(0px, -50%);
+  transition: all 1.5s ease;
+}
+.menu-2-btn:hover {
+  transform: translate(-10px, -50%);
+  height: 145px;
+  transition: all 0.5s ease;
+}
+@media screen and (min-width: 769px) {
+  .menu-2-btn {
+    z-index: 0;
+  }
+  .first-menu {
+    --width: 200px;
+    max-width: 200px;
+    min-width: 0;
+  }
+}
+@media screen and (max-width: 769px) {
+  .first-menu {
+    max-width: 100%;
+  }
+}
+.first-menu {
+  --width: 200px;
+}
+
+.second-menu {
+  @extend .first-menu;
+}
+ion-toolbar.zero-padding {
+  min-height: unset;
+  .toolbar-container {
+    min-height: unset;
+  }
+}

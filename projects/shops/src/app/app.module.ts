@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IonicModule } from '@ionic/angular';
+import { AuthModule } from 'projects/auth/src/public-api';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { IonicModule } from '@ionic/angular';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    IonicModule.forRoot()
+    IonicModule.forRoot(),
+    AuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

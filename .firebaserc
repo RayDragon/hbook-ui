@@ -7,6 +7,9 @@
       "hosting": {
         "hbook": [
           "hbook-in"
+        ],
+        "qntn": [
+          "qntn-hbook"
         ]
       }
     }
